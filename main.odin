@@ -12,7 +12,7 @@ day_one :: proc() {
 	left, right := util.parse_numbers(data)
 	defer delete(left)
 	defer delete(right)
-
+	//test
 	for r in left {
 		fmt.println(r)
 	}
