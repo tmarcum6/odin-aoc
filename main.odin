@@ -6,21 +6,30 @@ import "core:strconv"
 import "core:strings"
 
 main :: proc() {
-	day_one()
+	day_one_part_one()
+
+	free_all(context.temp_allocator)
 }
 
 day_one_part_two :: proc() {
-
+	input_string := #load("./input/day_one_one.txt", string)
+	lines := strings.split(input_string, "\n", context.temp_allocator)
+	similarity := get_similarity_score(lines)
+	fmt.printf("Total distance between pairs: %d\n", similarity)
 }
 
-day_one :: proc() {
+get_similarity_score :: proc(lines: []string) -> int {
+	for line in lines {
+
+	}
+}
+
+day_one_part_one :: proc() {
 	input_string := #load("./input/day_one_one.txt", string)
 	lines := strings.split(input_string, "\n", context.temp_allocator)
 
 	total_distance := get_total_distance_between_pairs(lines)
 	fmt.printf("Total distance between pairs: %d\n", total_distance)
-
-	free_all(context.temp_allocator)
 }
 
 get_total_distance_between_pairs :: proc(lines: []string) -> int {
